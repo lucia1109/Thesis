@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!--Import font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="create">
+        <h2>Add an Entry</h2>
+        <form id="predictionForm">
+            <label for="age">Select your age category:</label>
+            <select id="age" name="age">
+                <option value="18-24">18-24</option>
+                <option value="25-29">25-29</option>
+                <option value="30-34">30-34</option>
+                <option value="35-39">35-39</option>
+                <option value="40-44">40-44</option>
+                <option value="45-49">45-49</option>
+                <option value="50-54">50-54</option>
+                <option value="55-59">55-59</option>
+                <option value="60-64">60-64</option>
+                <option value="65-69">65-69</option>
+                <option value="70-74">70-74</option>
+                <option value="80">80+</option>
+            </select>
+
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+
+            <label for="bmi">What is your BMI:</label>
+            <input type="number" id="bmi" name="bmi" required />
+
+            <label for="exercise">During the past month, other than your regular job, did you participate in any physical activities or exercises?</label>
+            <select id="exercise" name="exercise">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="depression">Has a doctor, nurse, or other health professional ever told you that you had depression?</label>
+            <select id="depression" name="depression">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="fruits">How many times do you eat fruits per month?</label>
+            <input type="number" id="fruits" name="fruits" required />
+
+            <label for="vegetables">How many times do you eat green vegetables per month?</label>
+            <input type="number" id="vegetables" name="vegetables" required />
+
+            <label for="alcohol">During the past 30 days, how many days did you have at least one drink of any alcoholic beverage?</label>
+            <input type="number" id="alcohol" name="alcohol" required />
+
+            <label for="diabetes">Have you ever been told you have diabetes?</label>
+            <select id="diabetes" name="diabetes">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="skin_cancer">Have you ever been told you have skin cancer?</label>
+            <select id="skin_cancer" name="skin_cancer">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="other_cancer">Have you ever been told you have other types of cancer?</label>
+            <select id="other_cancer" name="other_cancer">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="smoke">Have you smoked at least 100 cigarettes in your life?</label>
+            <select id="smoke" name="smoke">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="heart_attack">Have you ever had a heart attack?</label>
+            <input type="number" id="heart_attack" name="heart_attack" required />
+
+            <button type="submit">Add and Predict</button>
+        </form>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Gather the data from the form
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+
+            // sending data to the backend for prediction
+            
+            fetch('/your-backend-endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(prediction => {
+                // Handle prediction result
+                console.log('Prediction:', prediction);
+            })
+            .catch(error => console.error('Error:', error));
+            
+        });
+    </script>
+</body>
+</html>

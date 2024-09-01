@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHeartYou Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!--Import font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'SYS (mmHg)'],
+          ['1',  80],
+          ['2',  115],
+          ['3',  135],
+          ['4',  102],
+          ['5',  100],
+          ['6',  131],
+          ['7',  136],
+          ['8',  131],
+          ['9',  144],
+          ['10',  149],
+          ['11',  130],
+          ['12',  134],
+          ['13',  137],
+          ['14',  132],
+          ['15',  141],
+          ['16',  153],
+          ['17',  146],
+          ['18',  125],
+          ['19',  110],
+          ['20',  120],
+          ['21',  125],
+          ['22',  125],
+          ['23',  120],
+          ['24',  113],
+          ['25',  106],
+          ['26',  113],
+          ['27',  119],
+          ['28',  157],
+          ['29',  120],
+          ['30',  124],
+          ['31',  124]
+        ]);
+
+        var options = {
+          title: 'Systolic Blood Pressure reading per day for the month of Januay, 2024',
+          //curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+
+    <section id="Monthly">
+        
+        <!--Navigation-->
+        <nav class="navigation">
+
+            <!--Logo-->
+            <a href="index.html" class="logo">i<span>Heart</span>You</a>
+
+            <!--Menu-->
+            <ul class="menu">
+                <li><a href="#">Daily</a> </li>
+                <li><a href="#">Weekly</a></li>
+                <li><a class="active" href="#">Monthly</a></li>
+            </ul>
+
+            <a href="https://cvd-risk-prediction.streamlit.app/page_2" class="nav-appointment-btn" target="_blank">Lifestyle Assessment</a>
+        </nav>
+        <!--Content-->
+        <div class="Monthly-content">
+            <div class="Monthly-text">
+                <h1>Stats for January, 2024</h1>  
+                
+            </div>
+            
+        </div>
+
+    </section>
+        
+    <section id="Table">
+        
+        <!---Table-->
+        <table class="content-table">
+            <p class="table-title"> Overall - Days recorded: 01/01/2024 - 31/01/2024 Total: 31 days</p>
+            <thead>
+              <tr>
+                <th>Measurements</th>
+                <th>Mean</th>
+                <th>Max</th>
+                <th>Date</th>
+                <th>Min</th>
+                <th>Date</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>SYS (mmHg)</th>
+                <td>127</td>
+                <td>157</td>
+                <td>12/01/2024</td>
+                <td>100</td>
+                <td>12/01/2024</td>
+              </tr>
+              <tr>
+                <th>DIA (mmHg)</th>
+                <td>75</td>
+                <td>87</td>
+                <td>10/01/2024</td>
+                <td>57</td>
+                <td>22/01/2024</td>
+              </tr>
+              <tr>
+                <th>Mean (mmHg)</th>
+                <td>93</td>
+                <td>109</td>
+                <td>31/01/2024</td>
+                <td>71</td>
+                <td>31/01/2024</td>
+              </tr>
+              <tr>
+                <th>Heart Rate (bpm)</th>
+                <td>94</td>
+                <td>124</td>
+                <td>12/01/2024</td>
+                <td>23</td>
+                <td>16/01/2024</td>
+              </tr>
+              <tr>
+                <th>Difference (mmHg)</th>
+                <td>52</td>
+                <td>81</td>
+                <td>31/01/2024</td>
+                <td>100</td>
+                <td>31/01/2024</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <table class="content-table">
+            <p class="table-title"> Awake - Days recorded: 01/01/2024 - 31/01/2024 Total: 31 days</p>
+            <thead>
+              <tr>
+                <th>Measurements</th>
+                <th>Mean</th>
+                <th>Max</th>
+                <th>Date</th>
+                <th>Min</th>
+                <th>Date</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>SYS (mmHg)</th>
+                <td>127</td>
+                <td>157</td>
+                <td>12/01/2024</td>
+                <td>100</td>
+                <td>12/01/2024</td>
+              </tr>
+              <tr>
+                <th>DIA (mmHg)</th>
+                <td>75</td>
+                <td>87</td>
+                <td>10/01/2024</td>
+                <td>57</td>
+                <td>22/01/2024</td>
+              </tr>
+              <tr>
+                <th>Mean (mmHg)</th>
+                <td>93</td>
+                <td>109</td>
+                <td>31/01/2024</td>
+                <td>71</td>
+                <td>31/01/2024</td>
+              </tr>
+              <tr>
+                <th>Heart Rate (bpm)</th>
+                <td>94</td>
+                <td>124</td>
+                <td>12/01/2024</td>
+                <td>23</td>
+                <td>16/01/2024</td>
+              </tr>
+              <tr>
+                <th>Difference (mmHg)</th>
+                <td>52</td>
+                <td>81</td>
+                <td>31/01/2024</td>
+                <td>100</td>
+                <td>31/01/2024</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="content-table">
+            <p class="table-title"> Asleep - Days recorded: 01/01/2024 - 31/01/2024 Total: 31 days</p>
+            <thead>
+              <tr>
+                <th>Measurements</th>
+                <th>Mean</th>
+                <th>Max</th>
+                <th>Date</th>
+                <th>Min</th>
+                <th>Date</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>SYS (mmHg)</th>
+                <td>127</td>
+                <td>157</td>
+                <td>12/01/2024</td>
+                <td>100</td>
+                <td>12/01/2024</td>
+              </tr>
+              <tr>
+                <th>DIA (mmHg)</th>
+                <td>75</td>
+                <td>87</td>
+                <td>10/01/2024</td>
+                <td>57</td>
+                <td>22/01/2024</td>
+              </tr>
+              <tr>
+                <th>Mean (mmHg)</th>
+                <td>93</td>
+                <td>109</td>
+                <td>31/01/2024</td>
+                <td>71</td>
+                <td>31/01/2024</td>
+              </tr>
+              <tr>
+                <th>Heart Rate (bpm)</th>
+                <td>94</td>
+                <td>124</td>
+                <td>12/01/2024</td>
+                <td>23</td>
+                <td>16/01/2024</td>
+              </tr>
+              <tr>
+                <th>Difference (mmHg)</th>
+                <td>52</td>
+                <td>81</td>
+                <td>31/01/2024</td>
+                <td>100</td>
+                <td>31/01/2024</td>
+              </tr>
+            </tbody>
+          </table>
+          
+    </section>
+
+    <section class="Graph">
+        <div id="curve_chart" style="width: 900px; height: 500px"></div>
+
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+    </section>
+    
+</body>
+</html>
